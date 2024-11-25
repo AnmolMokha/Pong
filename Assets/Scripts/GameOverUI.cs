@@ -27,4 +27,10 @@ public class GameOverUI : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void SubmitScoreAndQuit()
+    {
+        FindObjectOfType<GameManager>().SubmitScore();
+        SceneManager.LoadScene(0);
+    }
 }

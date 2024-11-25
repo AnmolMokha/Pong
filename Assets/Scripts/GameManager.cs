@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI playerScoreText;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private TextMeshProUGUI playerNameInputField;
+    [SerializeField] private LeaderboardManager leaderboardManager;
 
     private bool isGameOver;
 
@@ -150,6 +152,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SubmitScore()
+    {
+        if (playerNameInputField.text != "")
+        {
+            leaderboardManager.AddNewScore(playerNameInputField.text, playerScore);
+        }
+        else
+        {
+            Debug.Log("Player name cannot be empty. Score not added.");
+        }
+    }
+    
     private class SaveObject
     {
         //public Vector2 ballPosition;
